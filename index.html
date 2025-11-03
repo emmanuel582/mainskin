@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAINSKIN Beauty Laboratory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .top-bar {
+            background-color: #fff;
+            padding: 8px 20px;
+            text-align: right;
+            font-size: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .top-bar a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .logo span {
+            color: #d4a574;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4a574;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 50px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .business-header {
+            margin-bottom: 40px;
+        }
+
+        .business-header h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .business-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .business-info i {
+            color: #d4a574;
+            width: 20px;
+        }
+
+        .business-info a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .business-info a:hover {
+            color: #d4a574;
+        }
+
+        .status {
+            color: #4caf50;
+            font-weight: 500;
+            font-size: 13px;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .hero-logo {
+            width: 500px;
+            max-width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .description {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .more-link {
+            color: #d4a574;
+            cursor: pointer;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .services-section {
+            margin: 60px 0;
+        }
+
+        .services-section h2 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .services-list {
+            flex: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .service-item {
+            background-color: #fef5eb;
+            padding: 18px 25px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .service-item:hover {
+            background-color: #fdecd3;
+        }
+
+        .service-item i {
+            color: #d4a574;
+        }
+
+        .service-details {
+            display: none;
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .service-details.active {
+            display: block;
+        }
+
+        .service-option {
+            padding: 15px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .service-option:last-child {
+            border-bottom: none;
+        }
+
+        .service-option:hover {
+            background-color: #f9f9f9;
+        }
+
+        .service-info {
+            flex: 1;
+        }
+
+        .service-name {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .service-duration {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .service-description {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .service-price {
+            color: #d4a574;
+            font-weight: 600;
+            font-size: 16px;
+            margin-left: 20px;
+        }
+
+        .add-btn {
+            background-color: transparent;
+            border: 1px solid #d4a574;
+            color: #d4a574;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 10px;
+            transition: all 0.3s;
+        }
+
+        .add-btn:hover {
+            background-color: #d4a574;
+            color: #fff;
+        }
+
+        .shopping-cart {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 4px;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .shopping-cart h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .cart-items {
+            margin-bottom: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-name {
+            font-size: 14px;
+            color: #333;
+            flex: 1;
+        }
+
+        .cart-item-price {
+            font-weight: 600;
+            color: #333;
+            margin-left: auto;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+        }
+
+        .remove-btn:hover {
+            color: #d4a574;
+            background-color: #f0f0f0;
+            border-radius: 3px;
+        }
+
+        .cart-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .book-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #fef5eb;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .book-btn:hover {
+            background-color: #fdecd3;
+        }
+
+        .disclaimer {
+            font-size: 12px;
+            color: #999;
+            margin-top: 15px;
+        }
+
+        .team-section {
+            margin: 60px 0;
+        }
+
+        .team-section h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .team-member {
+            background-color: #fef5eb;
+            padding: 40px;
+            text-align: center;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .member-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #fff;
+            border-radius: 50%;
+            margin: -60px auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .member-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .member-role {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .contact-section {
+            margin: 60px 0;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+        }
+
+        .contact-section h2 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .contact-info {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #d4a574;
+        }
+
+        .opening-hours {
+            margin-top: 30px;
+        }
+
+        .opening-hours h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .map-container {
+            background-color: #e0e0e0;
+            height: 400px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+
+        .reviews-section {
+            margin: 60px 0;
+        }
+
+        .reviews-section h2 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .no-reviews {
+            text-align: center;
+            padding: 40px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            color: #666;
+        }
+
+        .write-review-btn {
+            float: right;
+            padding: 10px 25px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .write-review-btn:hover {
+            background-color: #f9f9f9;
+        }
+
+        footer {
+            background-color: #fff;
+            padding: 50px 40px;
+            margin-top: 60px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #d4a574;
+        }
+
+        .footer-brand {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <span>Show this site in English</span>
+    </div>
+
+    <header>
+        <div class="logo">studio<span>bookr</span></div>
+        <nav>
+            <a href="#book">Book an appointment</a>
+            <a href="#team">Our team</a>
+            <a href="#contact">contact</a>
+            <a href="#reviews">Reviews</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="business-header">
+            <h1>MAINSKIN Beauty Laboratory</h1>
+            <div class="business-info">
+                <div><i class="fas fa-map-marker-alt"></i> Zeil 109, 60313 Frankfurt</div>
+                <div><i class="fas fa-phone"></i> <a href="tel:069/85090606">069/85090606</a></div>
+                <div><i class="fas fa-globe"></i> <a href="http://www.mainskin.de" target="_blank">www.mainskin.de</a></div>
+            </div>
+            <div class="status">Now open until 10pm</div>
+        </div>
+
+        <div class="hero-section">
+            <img src="https://res.cloudinary.com/drfzrl9zj/image/upload/v1762169669/10044-1_zafffd.jpg" alt="MAINSKIN Beauty Laboratory" class="hero-logo">
+            
+            <p class="tagline">MAINSKIN - where beauty meets medical beauty</p>
+
+            <div class="description">
+                <p>Welcome to our Beauty Laboratory!</p>
+                <p>We have been offering cosmetic-medical treatments to improve problematic skin conditions and anti-aging, as well as laser hair removal, since 2007.</p>
+                <p>We use certified gold-standard devices that guarantee the highest quality and safety.</p>
+                <p>Please note that you will receive a discount when booking a package. All areas can be combined for laser hair removal in the package. Please select the areas at www.mainskin.de/preiseonline. The discount will be calculated and displayed further down the page....</p>
+                <span class="more-link">more</span>
+            </div>
+        </div>
+
+        <div class="services-section" id="book">
+            <h2>Unsere Services</h2>
+            <div class="services-grid">
+                <div class="services-list">
+                    <div class="service-item" onclick="toggleService('laser-women')">
+                <span>Laser-Haarentfernung - Damen</span>
+                <i class="fas fa-chevron-down" id="icon-laser-women"></i>
+            </div>
+            <div class="service-details" id="laser-women">
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Beratung</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description">Erleben Sie in unserer kostenlosen Beratung, wie die Laser-Haarentfernung Ihre Haut in kürzester Zeit dauerhaft glatt und makellos macht.</div>
+                    </div>
+                    <div class="service-price">0,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Individuelles Paket- Rabatt ab 3 und 6 Areale</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">Alle Bereiche können im Paket kombiniert werden. Bitte hierfür www.mainskin.de/preiseonline die Bereiche auswählen. Rabatt wird berechnet.</div>
+                    </div>
+                    <div class="service-price">0,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Paket 1 - Achseln, Unterschenkel, Intimbereich</div>
+                        <div class="service-duration">60 min</div>
+                        <div class="service-description">10er Paket 222€ 8er Paket 264€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">270,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Paket 2 - Intimbereich, Unterschenkel, Oberschenke</div>
+                        <div class="service-duration">75 min</div>
+                        <div class="service-description">10er Paket 254€ 8er Paket 278€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">302,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Paket 3 - Achseln, Intimbereich, kompletten Beine</div>
+                        <div class="service-duration">110 min</div>
+                        <div class="service-description">10er Paket 301€ 8er Paket 333€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">365,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Beratung.</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description">Erleben Sie in unserer kostenlosen Beratung, wie die Laser-Haarentfernung Ihre Haut in kürzester Zeit dauerhaft glatt und makellos macht.</div>
+                    </div>
+                    <div class="service-price">0,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Gesicht komplett</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description">10er Paket 69€ 8er Paket 79€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">89,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Oberlippe</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 39€ 8er Paket 44€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">49,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Kinn</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 39€ 8er Paket 44€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">49,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Nacken</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 39€ 8er Paket 44€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">49,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Hals</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 49€ 8er Paket 55€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">59,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Kotletten</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 33€ 8er Paket 35€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">35,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Nasenlöcher</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 20€ 8er Paket 25€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">35,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Augenbrauen</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 27€ 8er Paket 31€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">35,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Oberarme</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description">10er Paket 89€ 8er Paket 99€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">109,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Unterarme</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description">10er Paket 79€ 8er Paket 89€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">99,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Hände</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 29€ 8er Paket 35€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">39,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Rücken</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description">10er Paket 99€ 8er Paket 129€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">149,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Steißbein</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 39€ 8er Paket 44€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">49,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Dekolleté</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 39€ 8er Paket 49€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">49,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Brust</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description">10er Paket 39€ 8er Paket 44€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">49,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Brustwarzen</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 29€ 8er Paket 35€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">39,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Bauch komplett</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description">10er Paket 73€ 8er Paket 81€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">89,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Bauchlinie</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 29€ 8er Paket 35€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">39,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Achseln</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 59€ 8er Paket 69€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">79,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Unterschenkel</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description">10er Paket 89€ 8er Paket 99€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">109,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Oberschenkel</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description">10er Paket 99€ 8er Paket 109€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">119,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Füße</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 29€ 8er Paket 35€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">39,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Gesäß komplett</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description">10er Paket 79€ 8er Paket 89€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">99,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Po-Falte</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 39€ 8er Paket 44€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">49,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Intim-Zone</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 69€ 8er Paket 79€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">79,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Bikini-Zone</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">10er Paket 59€ 8er Paket 69€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">69,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Intimbereich (Intim-, Bikini-Zone, Po-Falte)</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description">10er Paket 129€ 8er Paket 139€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">149,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Ganzkörper (ohne Gesicht)</div>
+                        <div class="service-duration">150 min</div>
+                        <div class="service-description">10er Paket 399€ 8er Paket 449€ Pro Behandlung (https://www.mainskin.de/preiseonline/)</div>
+                    </div>
+                    <div class="service-price">499,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+            </div>
+            <div class="service-item" onclick="toggleService('laser-men')">
+                <span>Laser-Haarentfernung - Herren</span>
+                <i class="fas fa-chevron-down" id="icon-laser-men"></i>
+            </div>
+            <div class="service-details" id="laser-men">
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Beratung</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description">Erleben Sie in unserer kostenlosen Beratung, wie die Laser-Haarentfernung Ihre Haut in kürzester Zeit dauerhaft glatt und makellos macht.</div>
+                    </div>
+                    <div class="service-price">0,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Individuelles Paket - Rabatt ab 3 Areale</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">Alle Bereiche können im Paket kombiniert werden. Bitte hierfür www.mainskin.de/preiseonline die Bereiche auswählen. Rabatt wird berechnet.</div>
+                    </div>
+                    <div class="service-price">0,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Paket 1 - Oberwange, Hals, Nacken</div>
+                        <div class="service-duration">45 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">167,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Paket 2 - Oberarme, Rücken, Brust</div>
+                        <div class="service-duration">90 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">312,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Paket 3 - Oberarme, Rücken, Brust, Achseln</div>
+                        <div class="service-duration">105 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">379,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Gesicht komplett</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">99,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Gesicht (Oberwange/Bartkontur)</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">79,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Nacken</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">59,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Hals</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">59,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Nasenlöcher</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">29,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Augenbrauen</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">29,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Ohren</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">29,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Oberarme</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">99,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Unterarme</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">99,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Hände</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">35,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Rücken</div>
+                        <div class="service-duration">45 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">179,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Steißbein</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">49,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Brust</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">89,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Brustwarzen</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">29,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Bauch komplett</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">99,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Schulter</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">79,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Oberschenkel</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">109,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Unterschenkel</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">99,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Füße</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">29,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Gesäß komplett</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">119,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Po-Falte</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">79,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Intimbereich</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">129,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+            </div>
+            <div class="service-item" onclick="toggleService('hydrafacial')">
+                <span>Hydrafacial</span>
+                <i class="fas fa-chevron-down" id="icon-hydrafacial"></i>
+            </div>
+            <div class="service-details" id="hydrafacial">
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Beratung</div>
+                        <div class="service-duration">20 min</div>
+                        <div class="service-description">Sie möchten Ihren Hauttypen bestimmen? Benötigen Hilfe bei Ihrer Pflegeroutine? Dann buchen Sie eine Beratung!</div>
+                    </div>
+                    <div class="service-price">20,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Signature Hydrafacial</div>
+                        <div class="service-duration">45 min</div>
+                        <div class="service-description">Hydradermabrasion, chemisches Peeling, Tiefenausreinigung, manuelle Ausreinigung, Versorgung, Abschlusspflege</div>
+                    </div>
+                    <div class="service-price">169,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Deluxe Hydrafacial</div>
+                        <div class="service-duration">60 min</div>
+                        <div class="service-description">Hydradermabrasion, chemisches Peeling, Tiefenausreinigung, manuelle Ausreinigung, Versorgung, BOOSTER, LED, Abschlusspflege</div>
+                    </div>
+                    <div class="service-price">239,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Premium Hydrafacial</div>
+                        <div class="service-duration">75 min</div>
+                        <div class="service-description">LYMPHDRAINAGE, Hydradermabrasion, chemisches Peeling, Tiefenausreinigung, manuelle Ausreinigung, BOOSTER, LED, Versorgung, Abschlusspflege</div>
+                    </div>
+                    <div class="service-price">299,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Hydrafacial meets Fire & Ice</div>
+                        <div class="service-duration">75 min</div>
+                        <div class="service-description">Hydradermabrasion, IS Fire Maske, Tiefenausreinigung, manuelle Ausreinigung, IS Ice Maske, Versorgung, Abschlusspflege</div>
+                    </div>
+                    <div class="service-price">249,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Hydrafacial - Rückenbehandlung</div>
+                        <div class="service-duration">60 min</div>
+                        <div class="service-description">Hydradermabrasion, chemisches Peeling, Tiefenausreinigung, manuelle Ausreinigung, Versorgung, Abschlusspflege</div>
+                    </div>
+                    <div class="service-price">199,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Keravive Hydrafacial - Kopfbehandlung</div>
+                        <div class="service-duration">60 min</div>
+                        <div class="service-description">Teilbehandlung ohne Peptidspray</div>
+                    </div>
+                    <div class="service-price">230,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Keravive Hydrafacial - Kopfbehandlung</div>
+                        <div class="service-duration">75 min</div>
+                        <div class="service-description">Komplettbehandlung mit Peptidspray</div>
+                    </div>
+                    <div class="service-price">325,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Keravive Hydrafacial - Kopfbehandlung</div>
+                        <div class="service-duration">60 min</div>
+                        <div class="service-description">Teilbehandlung ohne Peptidspray</div>
+                    </div>
+                    <div class="service-price">280,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Keravive Hydrafacial - Kopfbehandlung</div>
+                        <div class="service-duration">60 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">375,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Mask</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">25,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Massage (Gesicht)</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">30,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Massage (Gesicht+Hals+Dekolleté)</div>
+                        <div class="service-duration">20 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">40,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Hydrafacial (Hals + Dekolleté)</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">100,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Perk Augen</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">45,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Perk Augen und Lippen</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">70,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+All eyes and lips on me</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">35,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Augenbrauen zupfen</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">15,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Cryo-Infusion</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">70,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Dermaplaning</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">60,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+            </div>
+            <div class="service-item" onclick="toggleService('facial-treatment')">
+                <span>Gesichtsbehandlung</span>
+                <i class="fas fa-chevron-down" id="icon-facial-treatment"></i>
+            </div>
+            <div class="service-details" id="facial-treatment">
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Beratung</div>
+                        <div class="service-duration">20 min</div>
+                        <div class="service-description">Sie möchten Ihren Hauttypen bestimmen? Benötigen Hilfe bei Ihrer Pflegeroutine? Dann buchen Sie eine Beratung!</div>
+                    </div>
+                    <div class="service-price">20,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Gesichtsbehandlung - Basic</div>
+                        <div class="service-duration">45 min</div>
+                        <div class="service-description">Vorreinigung, Hautanalyse, Peeling, Ausreinigung, Typgerechte Maske, Abschlusspflege, Pflegeberatung</div>
+                    </div>
+                    <div class="service-price">79,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Gesichtsbehandlung - Deluxe</div>
+                        <div class="service-duration">60 min</div>
+                        <div class="service-description">Vorreinigung, Hautanalyse, Peeling, Ausreinigung, Typgerechte Maske, Massage, Abschlusspflege, Pflegeberatung</div>
+                    </div>
+                    <div class="service-price">109,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Gesichtsbehandlung - Premium</div>
+                        <div class="service-duration">70 min</div>
+                        <div class="service-description">Vorreinigung, Hautanalyse, Peeling, Ausreinigung, Typgerechte Maske, LED-Therapie, Massage, Abschlusspflege, Pflegeberatung</div>
+                    </div>
+                    <div class="service-price">149,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Gesichtsbehandlung - Exclusive</div>
+                        <div class="service-duration">80 min</div>
+                        <div class="service-description">Vorreinigung, Hautanalyse, Peeling, Ausreinigung, Typgerechte Maske, LED-Therapie, Massage, Lymphdrainage, Abschlusspflege, Pflegeberatung</div>
+                    </div>
+                    <div class="service-price">189,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Fire & Ice Behandlung</div>
+                        <div class="service-duration">60 min</div>
+                        <div class="service-description">Fire & Ice ist die beliebteste Gesichtsbehandlung in den USA und ist bekannt als „Red Carpet Facial". Ein Glow und ebenmäßiger Teint sind garantiert.</div>
+                    </div>
+                    <div class="service-price">129,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Champagner- Behandlung (Enzympeeling)</div>
+                        <div class="service-duration">60 min</div>
+                        <div class="service-description">Genießen Sie die kraftvolle und dennoch beruhigende Enzymbehandlung. Diese Behandlung kombiniert Papaya- und Ananasenzyme mit Glykolsäure.</div>
+                    </div>
+                    <div class="service-price">119,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">CIRCADIA FIRMING PEPTIDE MASK</div>
+                        <div class="service-duration">75 min</div>
+                        <div class="service-description">Erneuert und revitalisiert die Haut mit wirksamen Peptiden, Antioxidantien, Stammzellen. Die straffende Wirkung ist unmittelbar sichtbar.</div>
+                    </div>
+                    <div class="service-price">150,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">CIRCADIA OXYGEN RX Behandlung</div>
+                        <div class="service-duration">75 min</div>
+                        <div class="service-description">Behandlung geeignet bei Unreinheiten, Entzündungen, Akne und Rosazea. Rötungen und Bakterien werden wirksam reduziert.</div>
+                    </div>
+                    <div class="service-price">150,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Prodigy Peel</div>
+                        <div class="service-duration">60 min</div>
+                        <div class="service-description">Prodigy Peel von iS Clinical ist ein chemisches Peeling der neuesten Generation. Leichte bis mittlere Peelingintensität. Oberflächlich wirkendes Peeli</div>
+                    </div>
+                    <div class="service-price">199,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Prodigy Peel Pro</div>
+                        <div class="service-duration">75 min</div>
+                        <div class="service-description">Das PRODIGY PEEL PRO SYSTEM hellt den Hautton auf, reduziert Altersflecken, bekämpft Akne und feine Linien und verbessert Hautunregelmäßigkeiten.</div>
+                    </div>
+                    <div class="service-price">299,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Circadia SWICH™ Behandlung</div>
+                        <div class="service-duration">60 min</div>
+                        <div class="service-description">SWICH™ ist geeignet für KundInnen mit sichtbaren Zeichen der Alterung, d. h. feinen Linien, schlaffer Haut, unregelmäßiger Pigmentierung und einem gla</div>
+                    </div>
+                    <div class="service-price">175,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">TIGF Behandlung</div>
+                        <div class="service-duration">80 min</div>
+                        <div class="service-description">Diese Behandlung kombiniert Circadias beste Produkte: Reinigung, Peeling, Masken, Eye Lift und Seren für sofortige Ergebnisse.</div>
+                    </div>
+                    <div class="service-price">250,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Circadian Rhythm Behandlung</div>
+                        <div class="service-duration">60 min</div>
+                        <div class="service-description">Das Circadian Time Balancing Facial vereint Feuchtigkeit, Aufhellung, Verjüngung und Klärung – ideal für Hyperpigmentierung, trockene und unreine Hau</div>
+                    </div>
+                    <div class="service-price">150,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Dermaplaning Signature</div>
+                        <div class="service-duration">60 min</div>
+                        <div class="service-description">Dermaplaning entfernt Hornhaut, Vellushaare und Ablagerungen für ein sofortiges Peeling und bereitet die Haut vor.</div>
+                    </div>
+                    <div class="service-price">120,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Lymphdrainage</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">40,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+LED-Therapie</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">40,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Massage (Gesicht)</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">30,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Massage (Gesicht+Hals+Dekolleté)</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">40,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Augenbrauen zupfen</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">15,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Cryo-Infusion</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">70,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Dermaplaning</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">60,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Enzym-Behandlung</div>
+                        <div class="service-duration">15 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">25,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Maske</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">25,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Lip & Eye Treatment 10min</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">25,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Oxigen RX Behandlung 20min</div>
+                        <div class="service-duration">20 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">60,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Alpha Beta /Latic Acid</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">25,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+Vitamin A Accelerator/ Vitamin A Gel</div>
+                        <div class="service-duration">10 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">20,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+            </div>
+            <div class="service-item" onclick="toggleService('rf-microneedling')">
+                <span>RF-Microneedling</span>
+                <i class="fas fa-chevron-down" id="icon-rf-microneedling"></i>
+            </div>
+            <div class="service-details" id="rf-microneedling">
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">Beratung (wird angerechnet)</div>
+                        <div class="service-duration">30 min</div>
+                        <div class="service-description"></div>
+                    </div>
+                    <div class="service-price">30,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">RF Microneedling - Gesicht</div>
+                        <div class="service-duration">135 min</div>
+                        <div class="service-description">Die VIVACE®-Behandlung ist eine der wirkungsvollsten Behandlungsverfahren zur Hautverjüngung. 3 Technologien: Microneedling, Radiofrequenz, LED</div>
+                    </div>
+                    <div class="service-price">349,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">RF Microneedling - Gesicht, Hals, Dekolleté</div>
+                        <div class="service-duration">165 min</div>
+                        <div class="service-description">Die VIVACE®-Behandlung ist eine der wirkungsvollsten Behandlungsverfahren zur Hautverjüngung. 3 Technologien: Microneedling, Radiofrequenz, LED</div>
+                    </div>
+                    <div class="service-price">448,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">RF Microneedling meets Hydrafacial</div>
+                        <div class="service-duration">150 min</div>
+                        <div class="service-description">Die Kombination von Hydrafacial und VIVACE stellt eine einzigartige sowie hocheffektive Behandlung zur Hautverjüngung dar.</div>
+                    </div>
+                    <div class="service-price">449,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="service-option">
+                    <div class="service-info">
+                        <div class="service-name">+ Hals & Dekolleté</div>
+                        <div class="service-duration">20 min</div>
+                        <div class="service-description">ADD ON</div>
+                    </div>
+                    <div class="service-price">99,00 €</div>
+                    <button class="add-btn">+</button>
+                </div>
+            </div>
+                    <div class="service-item" onclick="toggleService('back-treatment')">
+                        <span>Rückenbehandlung</span>
+                        <i class="fas fa-chevron-down" id="icon-back-treatment"></i>
+                    </div>
+                    <div class="service-details" id="back-treatment">
+                        <div class="service-option">
+                            <div class="service-info">
+                                <div class="service-name">Rückenbehandlung - Basic</div>
+                                <div class="service-duration">45 min</div>
+                                <div class="service-description">Reinigung, Peeling, manuelle Ausreinigung, Wirkstoffkomplex, Maske</div>
+                            </div>
+                            <div class="service-price">89,00 €</div>
+                            <button class="add-btn">+</button>
+                        </div>
+                        <div class="service-option">
+                            <div class="service-info">
+                                <div class="service-name">Rückenbehandlung - Quick</div>
+                                <div class="service-duration">30 min</div>
+                                <div class="service-description">Nur manuelle Ausreinigung</div>
+                            </div>
+                            <div class="service-price">69,00 €</div>
+                            <button class="add-btn">+</button>
+                        </div>
+                        <div class="service-option">
+                            <div class="service-info">
+                                <div class="service-name">Rückenbehandlung - Relax</div>
+                                <div class="service-duration">60 min</div>
+                                <div class="service-description">Reinigung, Peeling, manuelle Ausreinigung, Massage, Maske</div>
+                            </div>
+                            <div class="service-price">109,00 €</div>
+                            <button class="add-btn">+</button>
+                        </div>
+                        <div class="service-option">
+                            <div class="service-info">
+                                <div class="service-name">Rückenbehandlung - Enzympeeling</div>
+                                <div class="service-duration">50 min</div>
+                                <div class="service-description">Genießen Sie die kraftvolle und dennoch beruhigende Enzymbehandlung. Diese Behandlung kombiniert Papaya- und Ananasenzyme mit Glykolsäure.</div>
+                            </div>
+                            <div class="service-price">99,00 €</div>
+                            <button class="add-btn">+</button>
+                        </div>
+                        <div class="service-option">
+                            <div class="service-info">
+                                <div class="service-name">Rückenbehandlung - Fire & Ice</div>
+                                <div class="service-duration">60 min</div>
+                                <div class="service-description">Reinigung, Glykolsäuremaske, manuelle Ausreinigung, Verjüngende Maske, Abschlusspflege</div>
+                            </div>
+                            <div class="service-price">149,00 €</div>
+                            <button class="add-btn">+</button>
+                        </div>
+                        <div class="service-option">
+                            <div class="service-info">
+                                <div class="service-name">Rückenbehandlung - Hydrafacial</div>
+                                <div class="service-duration">60 min</div>
+                                <div class="service-description">Hydradermabrasion, chemisches Peeling, Tiefenausreinigung, manuelle Ausreinigung, Versorgung, Abschlusspflege</div>
+                            </div>
+                            <div class="service-price">199,00 €</div>
+                            <button class="add-btn">+</button>
+                        </div>
+                        <div class="service-option">
+                            <div class="service-info">
+                                <div class="service-name">Rückenbehandlung - Fire & Ice meets Hydrafacial</div>
+                                <div class="service-duration">75 min</div>
+                                <div class="service-description">Hydradermabrasion, IS Fire Maske, Tiefenausreinigung, manuelle Ausreinigung, IS Ice Maske, Versorgung, Abschlusspflege</div>
+                            </div>
+                            <div class="service-price">209,00 €</div>
+                            <button class="add-btn">+</button>
+                        </div>
+                        <div class="service-option">
+                            <div class="service-info">
+                                <div class="service-name">+ LED</div>
+                                <div class="service-duration">15 min</div>
+                                <div class="service-description">ADD ON</div>
+                            </div>
+                            <div class="service-price">40,00 €</div>
+                            <button class="add-btn">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shopping-cart">
+                    <h3>Warenkorb</h3>
+                    <div id="current-category" style="font-size: 12px; color: #666; margin-bottom: 10px; font-style: italic;"></div>
+                    <div class="cart-items" id="cart-items">
+                        <!-- Cart items will be added here dynamically -->
+                    </div>
+                    <div class="cart-row">
+                        <span>Preis*</span>
+                        <span id="total-price">ca. 0,00 €</span>
+                    </div>
+                    <div class="cart-row">
+                        <span>Dauer</span>
+                        <span id="total-duration">0 min</span>
+                    </div>
+                    <div class="cart-row">
+                        <span>Termin bei:</span>
+                        <span>im nächsten Schritt</span>
+                    </div>
+                    <button class="book-btn">Termin buchen</button>
+                    <p class="disclaimer">*Der Preis ist eine Circa-Angabe und kann in Abhängigkeit von der tatsächlichen Dauer, dem Materialaufwand oder bei Sonderwünschen abweichen.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-section" id="team">
+            <h2>Our team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-icon">👤</div>
+                    <div class="member-name">MAINSKIN</div>
+                    <div class="member-role">MAINSKIN</div>
+                </div>
+                <div class="team-member">
+                    <div class="member-icon">👤</div>
+                    <div class="member-name">facial treatment</div>
+                    <div class="member-role"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section" id="contact">
+            <div>
+                <h2>contact</h2>
+                <div class="contact-info">
+                    <p><strong>Our address:</strong></p>
+                    <p>MAINSKIN Beauty Laboratory<br>
+                    Line 109<br>
+                    60313 Frankfurt</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:069/85090606">069/85090606</a></p>
+                    <p><i class="fas fa-globe"></i> <a href="http://www.mainskin.de" target="_blank">www.mainskin.de</a></p>
+                    <p><a href="#imprint">Imprint</a></p>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+
+                <div class="opening-hours">
+                    <h3>Opening hours</h3>
+                    <div class="hours-row">
+                        <span>Mon</span>
+                        <span>9:00 - 22:00</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Tue</span>
+                        <span>9:00 - 22:00</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Wed</span>
+                        <span>9:00 - 22:00</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>do</span>
+                        <span>9:00 - 22:00</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Fri</span>
+                        <span>9:00 - 22:00</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Sat</span>
+                        <span>9:00 - 22:00</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>So</span>
+                        <span>Closed</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <div>
+                    <i class="fas fa-map-marked-alt" style="font-size: 48px;"></i>
+                    <p style="margin-top: 15px;">Map Location</p>
+                    <p style="font-size: 12px;">Zeil 109, 60313 Frankfurt</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="reviews-section" id="reviews">
+            <h2>Reviews</h2>
+            <button class="write-review-btn">Write a review</button>
+            <div style="clear: both;"></div>
+            <div class="no-reviews">
+                <p>Oops – this studio doesn't have a review yet... Just write one!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">studiobookr is a service of studiolution.com</div>
+                <ul>
+                    <li><a href="#">POS system</a></li>
+                    <li><a href="#">Offer online appointment booking</a></li>
+                    <li><a href="#">Customer management</a></li>
+                    <li><a href="#">Finance and tax advisors</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>COMPANY</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">press</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Jobs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>LEGAL</h3>
+                <ul>
+                    <li><a href="#">imprint</a></li>
+                    <li><a href="#">Data protection</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+                <div class="social-links" style="margin-top: 20px;">
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle service details
+        function toggleService(serviceId) {
+            const details = document.getElementById(serviceId);
+            const icon = document.getElementById('icon-' + serviceId);
+            
+            if (details.classList.contains('active')) {
+                details.classList.remove('active');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            } else {
+                details.classList.add('active');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            }
+        }
+
+        // Service accordion functionality for other services
+        const serviceItems = document.querySelectorAll('.service-item:not([onclick])');
+        serviceItems.forEach(item => {
+            item.addEventListener('click', function() {
+                alert('Service details would expand here');
+            });
+        });
+
+        // Cart functionality
+        let cart = [];
+        let totalPrice = 0;
+        let totalDuration = 0;
+        let currentServiceCategory = null;
+
+        function getServiceCategory(serviceElement) {
+            // Find the parent service section to determine category
+            const serviceDetails = serviceElement.closest('.service-details');
+            if (serviceDetails) {
+                const serviceId = serviceDetails.id;
+                switch(serviceId) {
+                    case 'laser-women':
+                        return 'Laser-Haarentfernung - Damen';
+                    case 'laser-men':
+                        return 'Laser-Haarentfernung - Herren';
+                    case 'hydrafacial':
+                        return 'Hydrafacial';
+                    case 'facial-treatment':
+                        return 'Gesichtsbehandlung';
+                    case 'rf-microneedling':
+                        return 'RF-Microneedling';
+                    case 'back-treatment':
+                        return 'Rückenbehandlung';
+                    default:
+                        return 'Unknown';
+                }
+            }
+            return 'Unknown';
+        }
+
+        function addToCart(serviceName, price, duration, serviceElement) {
+            // Check if item already exists in cart
+            const existingItem = cart.find(item => item.name === serviceName);
+            if (existingItem) {
+                return; // Don't add duplicates
+            }
+
+            // Get the service category
+            const serviceCategory = getServiceCategory(serviceElement);
+            
+            // Check if this is a different category than what's already in cart
+            if (currentServiceCategory && currentServiceCategory !== serviceCategory && cart.length > 0) {
+                const confirmSwitch = confirm(`Sie haben bereits Services aus der Kategorie "${currentServiceCategory}" im Warenkorb. Möchten Sie zu "${serviceCategory}" wechseln? Dies wird Ihren aktuellen Warenkorb leeren.`);
+                if (confirmSwitch) {
+                    // Clear current cart and switch category
+                    cart = [];
+                    currentServiceCategory = serviceCategory;
+                } else {
+                    return; // Don't add the service
+                }
+            } else if (!currentServiceCategory) {
+                // Set the category for the first item
+                currentServiceCategory = serviceCategory;
+            }
+
+            cart.push({
+                name: serviceName,
+                price: price,
+                duration: duration,
+                category: serviceCategory
+            });
+
+            updateCartDisplay();
+        }
+
+        function removeFromCart(serviceName) {
+            cart = cart.filter(item => item.name !== serviceName);
+            
+            // Reset category if cart becomes empty
+            if (cart.length === 0) {
+                currentServiceCategory = null;
+            }
+            
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+            const totalDurationElement = document.getElementById('total-duration');
+            const currentCategoryElement = document.getElementById('current-category');
+
+            // Clear current cart display
+            cartItemsContainer.innerHTML = '';
+
+            // Update current category display
+            if (currentServiceCategory && cart.length > 0) {
+                currentCategoryElement.textContent = `Kategorie: ${currentServiceCategory}`;
+                currentCategoryElement.style.display = 'block';
+            } else {
+                currentCategoryElement.style.display = 'none';
+            }
+
+            // Calculate totals
+            totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+            totalDuration = cart.reduce((sum, item) => sum + item.duration, 0);
+
+            // Display cart items
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <button class="remove-btn" onclick="removeFromCart('${item.name.replace(/'/g, "\\'")}')">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    <span class="cart-item-name">${item.name}</span>
+                    <span class="cart-item-price">${item.price.toFixed(2).replace('.', ',')} €</span>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            // Update totals
+            totalPriceElement.textContent = `ca. ${totalPrice.toFixed(2).replace('.', ',')} €`;
+            totalDurationElement.textContent = `${totalDuration} min`;
+        }
+
+        // Add service to cart functionality
+        document.querySelectorAll('.add-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                const serviceOption = this.closest('.service-option');
+                const serviceName = serviceOption.querySelector('.service-name').textContent;
+                const priceText = serviceOption.querySelector('.service-price').textContent;
+                const durationText = serviceOption.querySelector('.service-duration').textContent;
+                
+                // Parse price (remove € and convert to number)
+                const price = parseFloat(priceText.replace(',', '.').replace(' €', ''));
+                
+                // Parse duration (extract number from "X min")
+                const duration = parseInt(durationText.replace(' min', ''));
+                
+                addToCart(serviceName, price, duration, serviceOption);
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Book button
+        document.querySelector('.book-btn').addEventListener('click', function() {
+            if (!currentServiceCategory || cart.length === 0) {
+                alert('Bitte fügen Sie zuerst Services zu Ihrem Warenkorb hinzu.');
+                return;
+            }
+
+            // Redirect to appropriate booking page based on service category
+            let bookingPage = '';
+            switch(currentServiceCategory) {
+                case 'Laser-Haarentfernung - Damen':
+                    bookingPage = 'booking-laser-women.html';
+                    break;
+                case 'Laser-Haarentfernung - Herren':
+                    bookingPage = 'booking-laser-men.html';
+                    break;
+                case 'Hydrafacial':
+                    bookingPage = 'booking-hydrafacial.html';
+                    break;
+                case 'Gesichtsbehandlung':
+                    bookingPage = 'booking-facial-treatment.html';
+                    break;
+                case 'RF-Microneedling':
+                    bookingPage = 'booking-rf-microneedling.html';
+                    break;
+                case 'Rückenbehandlung':
+                    bookingPage = 'booking-ruckenbehandlung.html';
+                    break;
+                default:
+                    alert('Buchungsseite für diese Kategorie nicht gefunden.');
+                    return;
+            }
+
+            // Redirect to booking page
+            window.location.href = bookingPage;
+        });
+
+        // Write review button
+        document.querySelector('.write-review-btn').addEventListener('click', function() {
+            alert('Review form would open here');
+        });
+    </script>
+</body>
+</html>
