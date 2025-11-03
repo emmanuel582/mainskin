@@ -2,11 +2,35 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.html",
+      "src": "**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
+    {
+      "src": "/booking-hydrafacial.html",
+      "dest": "/booking-hydrafacial.html"
+    },
+    {
+      "src": "/booking-facial-treatment.html",
+      "dest": "/booking-facial-treatment.html"
+    },
+    {
+      "src": "/booking-laser-women.html",
+      "dest": "/booking-laser-women.html"
+    },
+    {
+      "src": "/booking-laser-men.html",
+      "dest": "/booking-laser-men.html"
+    },
+    {
+      "src": "/booking-rf-microneedling.html",
+      "dest": "/booking-rf-microneedling.html"
+    },
+    {
+      "src": "/booking-ruckenbehandlung.html",
+      "dest": "/booking-ruckenbehandlung.html"
+    },
     {
       "src": "/(.*)",
       "dest": "/$1"
