@@ -657,13 +657,30 @@
             
             <p class="tagline">MAINSKIN - wo Schönheit auf medizinische Schönheit trifft</p>
 
-            <div class="description">
-                <p>Willkommen in unserem Beauty Laboratory!</p>
-                <p>Seit 2007 bieten wir kosmetisch-medizinische Behandlungen zur Verbesserung problematischer Hautzustände und Anti-Aging sowie Laser-Haarentfernung an.</p>
-                <p>Wir verwenden zertifizierte Gold-Standard-Geräte, die höchste Qualität und Sicherheit garantieren.</p>
-                <p>Bitte beachten Sie, dass Sie bei der Buchung eines Pakets einen Rabatt erhalten. Alle Bereiche können für die Laser-Haarentfernung im Paket kombiniert werden. Bitte wählen Sie die Bereiche unter www.mainskin.de/preiseonline aus. Der Rabatt wird berechnet und weiter unten auf der Seite angezeigt....</p>
-                <span class="more-link">mehr</span>
-            </div>
+           <div class="description">
+    <div id="shortDescription">
+        <p>Herzlich willkommen in unserem Beauty Laboratory!</p>
+        <p>Wir bieten seit 2007 kosmetisch-medizinische Behandlungen zur Verbesserung problematischer Hautbilder und Anti-Aging sowie die Laserhaarentfernung an.</p>
+    </div>
+    <div id="fullDescription" style="display: none;">
+        <p>Herzlich willkommen in unserem Beauty Laboratory!</p>
+        <p>Wir bieten seit 2007 kosmetisch-medizinische Behandlungen zur Verbesserung problematischer Hautbilder und Anti-Aging sowie die Laserhaarentfernung an.</p>
+        <p>Dabei verwenden wir zertifizierte Gold-Standard-Geräte, die höchste Qualität und Sicherheit gewährleisten.</p>
+        <p>Bitte beachten Sie, dass Sie bei der Buchung eines Pakets einen Rabatt erhalten. Alle Bereiche können bei der Laserhaarentfernung im Paket kombiniert werden. Bitte hierfür www.mainskin.de/preiseonline die Bereiche auswählen. Rabatt wird berechnet und weiter unten auf der Seite angezeigt.</p>
+        <p>Folgende Dienstleistungen können Sie buchen:</p>
+        <ul style="text-align: left; margin-left: 20px; line-height: 1.8;">
+            <li>Medizinische Laserhaarentfernung</li>
+            <li>Original Hydrafacial-Behandlung</li>
+            <li>VIVACE Radiofrequenz Microneedling</li>
+            <li>Verschiedene Gesichtsbehandlungen mit innovativen Pflegeprodukten auf pharmazeutischer Basis</li>
+            <li>Cryo-Infusion</li>
+        </ul>
+        <p>Bitte beachten Sie, dass Ihre Buchung im MAINSKIN BEAUTY LABORATORY verbindlich ist. Sollten Sie den Termin nicht wahrnehmen können, bitten wir Sie, diesen spätestens 24 Stunden im Voraus abzusagen. Andernfalls wird Ihnen eine Gebühr in Höhe von 50 EUR in Rechnung gestellt.</p>
+        <p>Wir freuen uns darauf, Sie in unserem Beauty Laboratory begrüßen zu dürfen und stehen Ihnen bei weiteren Fragen gerne zur Verfügung.</p>
+        <p><strong>Schöne Grüße,<br>Ihr MAINSKIN-Team</strong></p>
+    </div>
+    <span class="more-link" id="toggleBtn" onclick="toggleDescription()">mehr</span>
+</div>
         </div>
 
         <div class="services-section" id="book">
@@ -906,7 +923,22 @@
         // Write review button
         document.querySelector('.write-review-btn').addEventListener('click', function() {
             alert('Bewertungsformular würde sich hier öffnen');
-        });
+        });// Toggle description
+function toggleDescription() {
+    const shortDesc = document.getElementById('shortDescription');
+    const fullDesc = document.getElementById('fullDescription');
+    const toggleBtn = document.getElementById('toggleBtn');
+    
+    if (fullDesc.style.display === 'none') {
+        shortDesc.style.display = 'none';
+        fullDesc.style.display = 'block';
+        toggleBtn.textContent = 'weniger';
+    } else {
+        shortDesc.style.display = 'block';
+        fullDesc.style.display = 'none';
+        toggleBtn.textContent = 'mehr';
+    }
+}
     </script>
 </body>
 </html>
